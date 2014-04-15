@@ -1,5 +1,6 @@
 <?php
 namespace Fuel\Core;
+use \Model\Sample;
 
 /**
  * Sapmle class tests
@@ -15,6 +16,7 @@ class Tests_Sample extends TestCase {
      */
     public function test_sample1()
     {
+        new \Model\Sample();
         $this->assertEquals(0, 0);
     }
 
