@@ -1,5 +1,4 @@
 <?php
-namespace Fuel\Core;
 use \Model\Sample;
 
 /**
@@ -16,6 +15,10 @@ class Tests_Sample extends TestCase {
      */
     public function test_sample1()
     {
+
+        $query = DB::query('SELECT now()');
+        var_dump($query->execute());
+
         new \Model\Sample();
         $this->assertEquals(0, 0);
     }
