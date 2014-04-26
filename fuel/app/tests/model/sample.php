@@ -1,26 +1,26 @@
 <?php
-use \Model\Sample;
-
 /**
- * Sapmle class tests
- *
+ * テストクラス
  * @group App
+ * @runInSeparateProcess
  */
 class Tests_Sample extends TestCase {
 
+
     /**
-     * Tests sample method
-     *
-     * @test
+     * テストクラス
+     * @group App
      */
     public function test_sample1()
     {
-
-        $query = DB::query('SELECT now()');
-        var_dump($query->execute());
-
-        new \Model\Sample();
+        setcookie('hoge', 'Hoge');
+        $sample = new \Model\Sample();
+        // $sample->set_header();
         $this->assertEquals(0, 0);
+
+        // $query = DB::query('SELECT now()');
+        // var_dump($query->execute());
+
     }
 
 }
