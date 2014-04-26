@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="FuelPHP Project" basedir="." default="all">
+
+    <property name="phing_dir_name"   value ="build" />
+    <property name="doxygen_dir_name" value ="${phing_dir_name}/doxygen" />
+    <property name="phpunit_dir_name" value ="${phing_dir_name}/coverage" />
+    <property name="docs_dir_name"    value ="${phing_dir_name}/docs" />
+    <property name="phpmd_dir_name"   value ="${phing_dir_name}/phpmd" />
+    <property name="phpcpd_dir_name"  value ="${phing_dir_name}/phpcpd" />
+    <property name="phpcs_dir_name"   value ="${phing_dir_name}/phpcs" />
+
+    <target name="init">
+        <delete dir="${phing_dir_name}" includeemptydirs="true" />
+        <mkdir dir="${phing_dir_name}" />
+    </target>
+
+    <target name="doxygen">
+        <mkdir dir="${doxygen_dir_name}" />
+        <exec dir="." command="
+            doxygen ./Doxyfile
+            "/>
+    </target>
+
+    <target name="all" depends="init,doxygen" />
+
+</project>
