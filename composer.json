@@ -16,10 +16,16 @@
         "forum": "http://fuelphp.com/forums"
     },
     "require": {
-        "php": ">=5.3.3",
-        "monolog/monolog": "1.5.*",
-    	"fuelphp/upload": "2.0.1",
-        "phpunit/phpunit": "3.7.32"
+		"php"                         : ">=5.3.3",
+		"monolog/monolog"             : "1.9.*",
+		"fuelphp/upload"              : "2.0.1",
+		"phing/phing"                 : "2.7.0",
+		"phpunit/phpunit"             : "3.7.32",
+		"phpdocumentor/phpdocumentor" : "2.3.2",
+		"phpmd/phpmd"                 : "1.5.0",
+		"pdepend/pdepend"             : "1.1.1",
+		"squizlabs/php_codesniffer"   : "1.5.2",
+		"sebastian/phpcpd"            : "2.0.0"
     },
     "suggest": {
         "mustache/mustache": "Allow Mustache templating with the Parser package",
@@ -30,10 +36,13 @@
     "config": {
         "vendor-dir": "fuel/vendor"
     },
-    "scripts": {
-        "post-install-cmd": [
-            "php oil r install"
-        ]
-    },
+	"scripts": {
+		"post-install-cmd": [
+			"cat ./patch/phpunit/TestRunner.php > ./fuel/vendor/phpunit/phpunit/PHPUnit/TextUI/TestRunner.php"
+			],
+		"post-update-cmd": [
+			"cat ./patch/phpunit/TestRunner.php > ./fuel/vendor/phpunit/phpunit/PHPUnit/TextUI/TestRunner.php"
+			]
+	},
     "minimum-stability": "dev"
 }
