@@ -2,6 +2,8 @@
 <project name="FuelPHP Project" basedir="." default="all">
 
     <property name="phing_dir_name"   value ="build" />
+    <property name="build_dir_name"   value ="build" />
+    <property name="s3_bucket_name"   value ="jenkins.absolute-keitarou.net" />
     <property name="phpunit_dir_name" value ="${phing_dir_name}/coverage" />
     <property name="doxygen_dir_name" value ="${phing_dir_name}/doxygen" />
     <property name="docs_dir_name"    value ="${phing_dir_name}/docs" />
@@ -41,6 +43,18 @@
             "/>
     </target>
 
-    <target name="all" depends="init, phpunit, doxygen, phpcpd" />
+    <target name="s3cmd">
+        <exec dir="." command="
+            s3cmd
+            put
+            -r
+            --acl-public
+            ${build_dir_name}
+            s3://${s3_bucket_name}/${JOB_NAME}/${BUILD_NUMBER}/
+            "/>
+    </target>
+
+    <target name="all"    depends="init, phpunit, doxygen, phpcpd" />
+    <target name="all_s3" depends="all, s3cmd" />
 
 </project>
