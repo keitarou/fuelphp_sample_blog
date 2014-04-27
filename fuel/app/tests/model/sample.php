@@ -15,7 +15,7 @@ class Tests_Sample extends TestCase {
     {
         setcookie('hoge', 'Hoge');
         $sample = new \Model\Sample();
-        // $sample->set_header();
+        $sample->set_header();
         $this->assertEquals(0, 0);
 
         // $query = DB::query('SELECT now()');

@@ -2,8 +2,8 @@
 <project name="FuelPHP Project" basedir="." default="all">
 
     <property name="phing_dir_name"   value ="build" />
-    <property name="doxygen_dir_name" value ="${phing_dir_name}/doxygen" />
     <property name="phpunit_dir_name" value ="${phing_dir_name}/coverage" />
+    <property name="doxygen_dir_name" value ="${phing_dir_name}/doxygen" />
     <property name="docs_dir_name"    value ="${phing_dir_name}/docs" />
     <property name="phpmd_dir_name"   value ="${phing_dir_name}/phpmd" />
     <property name="phpcpd_dir_name"  value ="${phing_dir_name}/phpcpd" />
@@ -14,6 +14,17 @@
         <mkdir dir="${phing_dir_name}" />
     </target>
 
+    <target name="phpunit">
+        <mkdir dir="${phpunit_dir_name}" />
+        <exec dir="." command="
+            env FUEL_ENV=test
+            php oil test
+            --group=App
+            --coverage-html=${phpunit_dir_name}/html
+            --log-junit=${phpunit_dir_name}/junit.xml
+            "/>
+    </target>
+
     <target name="doxygen">
         <mkdir dir="${doxygen_dir_name}" />
         <exec dir="." command="
@@ -21,6 +32,6 @@
             "/>
     </target>
 
-    <target name="all" depends="init,doxygen" />
+    <target name="all" depends="init, phpunit, doxygen" />
 
 </project>
