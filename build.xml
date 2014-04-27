@@ -32,6 +32,15 @@
             "/>
     </target>
 
-    <target name="all" depends="init, phpunit, doxygen" />
+    <target name="phpcpd">
+        <mkdir dir="${phpcpd_dir_name}" />
+        <exec dir="." command="
+            ./fuel/vendor/bin/phpcpd
+            --log-pmd ${phpcpd_dir_name}/cpd.xml
+            ./fuel/app
+            "/>
+    </target>
+
+    <target name="all" depends="init, phpunit, doxygen, phpcpd" />
 
 </project>
