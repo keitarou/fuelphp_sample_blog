@@ -1,4 +1,8 @@
 {
+	"repositories": [
+		{ "packagist": false },
+		{ "type": "composer", "url": "http://packagist.absolute-keitarou.net" }
+	],
     "name": "fuel/fuel",
     "type": "metapackage",
     "description": "The FuelPHP framework",
@@ -44,5 +48,6 @@
 			"cat ./patch/phpunit/TestRunner.php > ./fuel/vendor/phpunit/phpunit/PHPUnit/TextUI/TestRunner.php"
 			]
 	},
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+	"require-dependencies": true
 }
