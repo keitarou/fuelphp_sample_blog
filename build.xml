@@ -23,7 +23,6 @@
             php oil test
             --group=App
             --coverage-html=${phpunit_dir_name}/html
-            --log-junit=${phpunit_dir_name}/junit.xml
             "/>
     </target>
 

@@ -24,4 +24,7 @@
             <directory suffix=".php">../vendor</directory>
         </blacklist>
     </filter>
+    <logging>
+        <log type="junit" target="../../build/log/junit.xml" logIncompleteSkipped="false"/>
+    </logging>
 </phpunit>

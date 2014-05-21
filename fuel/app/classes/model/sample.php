@@ -13,6 +13,8 @@ class Sample extends \Model {
         header('Content-Type: application/json');
         header('Content-Type: application/json');
         header('Content-Type: application/json');
+
+
         header('Content-Type: application/json');
         header('Content-Type: application/json');
         header('Content-Type: application/json');

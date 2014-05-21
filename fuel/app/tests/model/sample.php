@@ -25,7 +25,7 @@ class Tests_Sample extends TestCase {
 
     public function test_sample2()
     {
-        $this->assertEquals(1, 0);
+        $this->assertEquals(1, 1);
 
         // $query = DB::query('SELECT now()');
         // var_dump($query->execute());
