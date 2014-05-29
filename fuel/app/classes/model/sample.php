@@ -3,6 +3,9 @@ namespace Model;
 
 class Sample extends \Model {
 
+    /**
+     * TODO: todooを仕込む
+     */
     function set_header(){
         if(true){
             header('Content-Type: application/json');
